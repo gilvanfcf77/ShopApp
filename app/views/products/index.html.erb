@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th scope="col">Name</th>
+      <th scope="col">Id</th>
       <th scope="col">Description</th>
       <th scope="col">Price</th>
       <th scope="col">Picture</th>
@@ -17,6 +18,7 @@
     <% @products.each do |product| %>
       <tr>
         <td><%= product.name %></td>
+        <td><%= product.id %></td>
         <td><%= product.description %></td>
         <td><%= product.price %></td>
         <% if product.picture.length >=20 %>
@@ -38,8 +40,11 @@
 
 <br>
 
-<button type="button" class="btn btn-dark float-right">
-  <%= link_to 'New Product', new_product_path,  :style=>'color:#FFFFFF;' %>
-</div>
+<% if current_user&.admin %>
+  <button type="button" class="btn btn-dark float-right">
+    <%= link_to 'New Product', new_product_path,  :style=>'color:#FFFFFF;' %>
+  </div>
+<% end %> 
+
 
 

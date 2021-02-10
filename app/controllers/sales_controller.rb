@@ -24,7 +24,6 @@ class SalesController < ApplicationController
   def create
     @sale = Sale.new(sale_params)
     @sale.user = current_user
-
     respond_to do |format|
       if @sale.save
         format.html { redirect_to @sale, notice: "Sale was successfully created." }
@@ -38,6 +37,10 @@ class SalesController < ApplicationController
 
   # PATCH/PUT /sales/1 or /sales/1.json
   def update
+    product = Product.find(@sale.product_id)
+    product.amount = 10 
+    product.save
+    @sale.amount
     respond_to do |format|
       if @sale.update(sale_params)
         format.html { redirect_to @sale, notice: "Sale was successfully updated." }
@@ -62,9 +65,9 @@ class SalesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_sale
       @sale = Sale.find(params[:id])
-      p1 = Product.find(@sale.product_id)
-      p1.amount -= @sale.amount 
-      p1.save
+      product = Product.find(@sale.product_id)
+      product.amount -= @sale.amount 
+      product.save
     end
 
     # Only allow a list of trusted parameters through.
