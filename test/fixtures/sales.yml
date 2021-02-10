@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2021-02-10 00:17:51
+  user: one
+  product: one
+  amount: 1
+
+two:
+  date: 2021-02-10 00:17:51
+  user: two
+  product: two
+  amount: 1
