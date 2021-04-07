@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :carts
   get 'users/index'
   match '/users',   to: 'users#index',   via: 'get'
   match '/users/:id',     to: 'users#show',       via: 'get'

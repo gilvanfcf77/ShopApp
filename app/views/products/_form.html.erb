@@ -39,7 +39,7 @@
   <div class="field">
     <%= form.label :category_id %>
     <%= collection_select(:product, :category_id, Category.all, :id, :name, prompt: true) %>
-    </div>
+  </div>
 
   <div class="actions">
     <%= form.submit %>
